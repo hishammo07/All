@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>My Engineering Tools</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg1:#04202e;--bg2:#05202d;--bg3:#031923;--text:#c9f5ee;--body:#9bb8c2;--teal:#2dd4bf;--line:rgba(120,220,210,.16);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg3)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Inter,"Segoe UI",Roboto,Arial,sans-serif;color:var(--body);line-height:1.55;background:radial-gradient(900px 500px at 20% 0%,rgba(20,150,140,.35),transparent 60%),radial-gradient(800px 500px at 90% 20%,rgba(40,100,170,.28),transparent 60%),linear-gradient(180deg,var(--bg1),var(--bg2) 50%,var(--bg3))}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 20px;background:rgba(6,50,64,.72);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area-inset-top,0px);background:rgba(6,50,64,.9);z-index:6}
+.brand{display:flex;align-items:center;gap:10px;flex:none;color:#fff;font-weight:700;font-size:15px;line-height:1.15}
+.brand small{display:block;font-size:10px;font-weight:600;letter-spacing:.18em;color:var(--teal)}
+.logo{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#d9fbf5,#2dd4bf 60%,#0e7490)}
+.logo svg{width:22px;height:22px;stroke:#064e5a;fill:#fff;stroke-width:1.6}
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:4px;background:rgba(3,25,35,.6);border-radius:14px}
+.pill{flex:none;border:0;background:transparent;color:#b6d3da;font:500 13px Inter,sans-serif;padding:8px 14px;border-radius:10px;cursor:pointer}
+.pill[aria-pressed="true"]{background:linear-gradient(135deg,#2dd4bf,#14b8a6);color:#032a33;font-weight:600}
+.pill:focus-visible,.open:focus-visible,.card:focus-visible,.q:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:56px 22px 190px;min-height:100vh;text-align:center}
+.eyebrow{margin:0 0 10px;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.22em}
+h1{margin:0;color:var(--text);font-size:clamp(30px,6vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
+.sub{margin:12px auto 28px;max-width:520px;font-size:16px}
+.tools{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:34px}
+.q{width:100%;max-width:420px;text-align:center;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(3,25,35,.6);color:#e6fbf7;font:inherit}
+.q::placeholder{color:#6f929c}
+.count{font-size:13px;color:#7fa3ad}
+.grid{display:flex;flex-wrap:wrap;justify-content:center;gap:20px}
+.card{--c:#2dd4bf;display:flex;flex-direction:column;align-items:center;text-align:center;flex:0 1 340px;min-width:0;gap:6px;padding:28px 22px;border-radius:20px;text-decoration:none;color:inherit;border:1px solid color-mix(in srgb,var(--c) 28%,transparent);border-top-color:color-mix(in srgb,var(--c) 70%,transparent);background:radial-gradient(420px 220px at 90% 0%,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%),rgba(6,38,52,.78);transition:transform .18s,border-color .18s}
+.card:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--c) 65%,transparent)}
+.ico{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;margin-bottom:10px;background:color-mix(in srgb,var(--c) 18%,transparent);border:1px solid color-mix(in srgb,var(--c) 35%,transparent)}
+.ico svg{width:24px;height:24px;fill:none;stroke:var(--c);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.card{position:relative}.lock{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:rgba(3,25,35,.6);border:1px solid var(--line)}.lock svg{width:16px;height:16px;fill:none;stroke:#cfeee9;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.modal{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;background:rgba(2,14,20,.72);backdrop-filter:blur(4px)}.modal[hidden]{display:none}
+.box{width:min(100%,360px);padding:28px 24px;border-radius:20px;text-align:center;background:#07303f;border:1px solid var(--line)}.box h3{margin:0 0 6px;color:#f1fffc;font-size:19px}.box p{margin:0 0 16px;font-size:14px}
+.box input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(3,25,35,.7);color:#e6fbf7;font:inherit;text-align:center}.box input:focus-visible,.box button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.err{min-height:22px;margin:8px 0 6px;font-size:13px;color:#ff9a8a}.row{display:flex;gap:10px;justify-content:center}.row button{padding:9px 20px;border-radius:999px;font:600 14px Inter,sans-serif;cursor:pointer}.b1{border:0;background:linear-gradient(135deg,#2dd4bf,#14b8a6);color:#032a33}.b2{border:1px solid var(--line);background:transparent;color:#b6d3da}
+.tag{font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--c)}
+.card h2{margin:0;color:#f1fffc;font-size:19px;font-weight:700}
+.card p{margin:2px 0 14px;font-size:14px;flex:1}
+.open{align-self:center;padding:7px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 60%,transparent);color:var(--c);font-size:13px;font-weight:600}
+.card:hover .open{background:var(--c);color:#032a33}
+.empty{display:none;padding:40px 0;color:#7fa3ad}
+footer{position:absolute;left:0;right:0;bottom:18px;font-size:13px;color:#d6f3ee}
+footer b{color:var(--teal)}
+.waves{position:fixed;left:0;right:0;bottom:0;height:130px;z-index:1;pointer-events:none;overflow:hidden}
+.waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
+.w1{animation:drift 22s linear infinite}
+.w2{animation:drift 34s linear infinite reverse}
+@keyframes drift{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.w1,.w2{animation:none}.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  
+  <div class="pills" id="pills" role="group" aria-label="Categories"></div>
+</nav>
+<div class="wrap">
+  
+  <h1>My Engineering Tools</h1>
+  <p class="sub">Design, calculate, select, price and submit. Every tool in one place.</p>
+  <div class="tools">
+    <input class="q" id="q" type="search" placeholder="Search tools..." aria-label="Search tools">
+    <span class="count" id="count"></span>
+  </div>
+  <main class="grid" id="grid"></main>
+  <div class="empty" id="empty">No tool matches your search. Try another word or choose All.</div>
+  <footer>Created by: Eng. Hesham Mohamed</footer>
+</div>
+<div class="modal" id="m" hidden><div class="box" role="dialog" aria-modal="true" aria-labelledby="mt"><h3 id="mt">Protected tool</h3><p id="mn">Enter the password to open this tool.</p><input id="pw" type="password" placeholder="Password" autocomplete="off" aria-label="Password"><div class="err" id="err" role="alert"></div><div class="row"><button class="b2" id="cancel">Cancel</button><button class="b1" id="go">Unlock</button></div></div></div>
+<div class="waves" aria-hidden="true">
+  <svg class="w2" viewBox="0 0 2400 130" preserveAspectRatio="none"><path d="M0 70C150 40 300 40 450 70S750 100 900 70 1050 40 1200 70C1350 40 1500 40 1650 70S1950 100 2100 70 2250 40 2400 70V130H0Z" fill="rgba(20,150,140,.22)"/></svg>
+  <svg class="w1" viewBox="0 0 2400 130" preserveAspectRatio="none"><path d="M0 90C200 60 400 60 600 90S1000 120 1200 90C1400 60 1600 60 1800 90S2200 120 2400 90V130H0Z" fill="rgba(25,120,120,.45)"/></svg>
+</div>
+<script>
+// Edit this list to add or change tools: name, tag, desc, cat, icon, color, url
+var P={
+doc:"M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+cube:"M12 3l8 4.5v9L12 21l-8-4.5v-9zM12 12l8-4.5M12 12v9M12 12L4 7.5",
+curve:"M4 4v16h16M7 8c4 0 6 2 9 9",
+grid:"M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z",
+drop:"M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z",
+calc:"M6 3h12v18H6zM9 7h6M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01",
+fan:"M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9",
+file:"M7 3h7l5 5v13H7zM14 3v5h5M10 13h6M10 17h6",
+coin:"M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 7v10M15 9.5c-.5-1-1.7-1.5-3-1.5-1.7 0-3 .8-3 2s1.3 1.7 3 2 3 .8 3 2-1.3 2-3 2c-1.3 0-2.5-.5-3-1.5"};
+var TOOLS=[
+{name:"Pool System",tag:"COMPLETE DESIGN SUITE",desc:"Full pool design system: calculators and sizing in one connected tool.",cat:"Pool",icon:"doc",color:"#2dd4bf",url:"https://hishammo07.github.io/Full-Version/Pool-System.html"},
+{name:"Pool 3D Simulator",tag:"3D SIMULATION",desc:"Preview and explore your pool layout in an interactive 3D view.",cat:"Pool",locked:1,icon:"cube",color:"#8b9cf4",url:"https://hishammo07.github.io/Simulation/Pool_3D_v3.html"},
+{name:"Pump Selector",tag:"H-Q CURVE MATCHING",desc:"Match pumps to head and flow using catalogue H-Q curves.",cat:"Pool",icon:"curve",color:"#4a9be8",url:"https://hishammo07.github.io/Pump-Selector/Pump-Selector-HQ-Curves.html"},
+{name:"Accessories Catalogue",tag:"ASTRALPOOL CATALOGUE",desc:"Browse AstralPool accessories, fittings and equipment.",cat:"Pool",icon:"grid",color:"#34d399",url:"https://hishammo07.github.io/Accessories/Accessories.html"},
+{name:"Piping Calculator",tag:"LOSSES AND VELOCITIES",desc:"Calculate pressure losses and flow velocities across piping runs.",cat:"Piping",icon:"drop",color:"#38bdf8",url:"https://hishammo07.github.io/Piping/Piping-Calculator_v03.html"},
+{name:"Piping Cost Estimator",tag:"COST ESTIMATION",desc:"Estimate pipe, fittings and valve costs for your project.",cat:"Piping",icon:"calc",color:"#f59e6b",url:"https://hishammo07.github.io/Piping/Piping-Cost-v01.html"},
+{name:"HVAC MEP Designer",tag:"HVAC AND MEP",desc:"HVAC calculations and design support for mechanical works.",cat:"MEP",locked:1,icon:"fan",color:"#22d3ee",url:"https://hishammo07.github.io/MEP/HVAC_V03.html"},
+{name:"Submittal Builder",tag:"MATERIAL SUBMITTALS",desc:"Prepare organised material submittals ready to send for approval.",cat:"MEP",icon:"file",color:"#e0b86a",url:"https://hishammo07.github.io/MAT-SUB/Mat-Sub-V07.html"},
+{name:"Personal Financing",tag:"PERSONAL FINANCE",desc:"Plan and calculate personal financing and repayments.",cat:"Finance",locked:1,icon:"coin",color:"#a3e635",url:"https://hishammo07.github.io/Fin/Personal-Financing.html"}
+];
+var ORDER=["Pool System","Submittal Builder","Pump Selector","Piping Cost Estimator","Piping Calculator","Accessories Catalogue","Pool 3D Simulator","HVAC MEP Designer","Personal Financing"];
+TOOLS.sort(function(a,b){return ORDER.indexOf(a.name)-ORDER.indexOf(b.name)});
+var cats=["All"].concat(TOOLS.map(function(t){return t.cat}).filter(function(c,i,a){return a.indexOf(c)===i}));
+var cur="All",grid=document.getElementById("grid"),pills=document.getElementById("pills"),q=document.getElementById("q");
+function esc(s){return s.replace(/[&<>"]/g,function(m){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]})}
+function render(){
+  var term=q.value.trim().toLowerCase(),n=0,h="";
+  TOOLS.forEach(function(t){
+    if(cur!=="All"&&t.cat!==cur)return;
+    if(term&&(t.name+" "+t.tag+" "+t.desc).toLowerCase().indexOf(term)<0)return;
+    n++;
+    h+='<a class="card" data-i="'+TOOLS.indexOf(t)+'" style="--c:'+t.color+'" href="'+(t.locked?'#':t.url)+'"'+(t.locked?'':' target="_blank" rel="noopener"')+'>'+(t.locked?'<span class="lock" title="Password protected"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 11h12v9H6zM8.5 11V8a3.5 3.5 0 0 1 7 0v3"/></svg></span>':'')+'<div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="'+P[t.icon]+'"/></svg></div><span class="tag">'+esc(t.tag)+'</span><h2>'+esc(t.name)+'</h2><p>'+esc(t.desc)+'</p><span class="open">Open &rarr;</span></a>';
+  });
+  grid.innerHTML=h;
+  document.getElementById("empty").style.display=n?"none":"block";
+  document.getElementById("count").textContent=n+" of "+TOOLS.length+" tools";
+}
+cats.forEach(function(c){
+  var b=document.createElement("button");b.className="pill";b.textContent=c;b.setAttribute("aria-pressed",c===cur);
+  b.onclick=function(){cur=c;[].forEach.call(pills.children,function(x){x.setAttribute("aria-pressed",x===b)});render()};
+  pills.appendChild(b);
+});
+var HASH="67dee85b8e5f950858f381882caa287b14182121bd2565d771a13284576d017b",pending=null,M=document.getElementById("m"),PW=document.getElementById("pw"),ERR=document.getElementById("err");
+function unlocked(){try{return sessionStorage.getItem("u")==="1"}catch(e){return false}}
+function openTool(t){var w=window.open(t.url,"_blank","noopener");if(!w)location.href=t.url}
+function closeM(){M.hidden=true;PW.value="";ERR.textContent="";pending=null}
+function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return x.toString(16).padStart(2,"0")}).join("")})}
+function tryUnlock(){
+  var t=pending;if(!t)return;
+  if(!(window.crypto&&crypto.subtle)){ERR.textContent="Password check is not supported in this browser.";return}
+  sha(PW.value).then(function(h){
+    if(h===HASH){try{sessionStorage.setItem("u","1")}catch(e){}closeM();openTool(t)}
+    else{ERR.textContent="Wrong password. Try again.";PW.value="";PW.focus()}
+  });
+}
+grid.addEventListener("click",function(e){
+  var a=e.target.closest(".card");if(!a||a.getAttribute("href")!=="#")return;
+  e.preventDefault();var t=TOOLS[a.dataset.i];
+  if(unlocked()){openTool(t);return}
+  pending=t;document.getElementById("mn").textContent="Enter the password to open "+t.name+".";M.hidden=false;PW.focus();
+});
+document.getElementById("go").onclick=tryUnlock;
+document.getElementById("cancel").onclick=closeM;
+PW.addEventListener("keydown",function(e){if(e.key==="Enter")tryUnlock()});
+M.addEventListener("click",function(e){if(e.target===M)closeM()});
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!M.hidden)closeM()});
+q.addEventListener("input",render);
+render();
+</script>
+</body>
+</html>
