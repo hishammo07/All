@@ -20,7 +20,7 @@ body::before{content:"";position:fixed;top:0;left:0;right:0;height:env(safe-area
 .pill{flex:none;border:0;background:transparent;color:#b6d3da;font:500 13px Inter,sans-serif;padding:8px 14px;border-radius:10px;cursor:pointer}
 .pill[aria-pressed="true"]{background:linear-gradient(135deg,#2dd4bf,#14b8a6);color:#032a33;font-weight:600}
 .pill:focus-visible,.open:focus-visible,.card:focus-visible,.q:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
-.wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:56px 22px 190px;text-align:center}
+.wrap{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:56px 22px 190px;min-height:100vh;text-align:center}
 .eyebrow{margin:0 0 10px;color:var(--teal);font-size:12px;font-weight:600;letter-spacing:.22em}
 h1{margin:0;color:var(--text);font-size:clamp(30px,6vw,52px);font-weight:700;letter-spacing:-.02em;line-height:1.1}
 .sub{margin:12px auto 28px;max-width:520px;font-size:16px}
@@ -39,7 +39,7 @@ h1{margin:0;color:var(--text);font-size:clamp(30px,6vw,52px);font-weight:700;let
 .open{align-self:center;padding:7px 16px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 60%,transparent);color:var(--c);font-size:13px;font-weight:600}
 .card:hover .open{background:var(--c);color:#032a33}
 .empty{display:none;padding:40px 0;color:#7fa3ad}
-footer{margin-top:40px;font-size:13px;color:#8fb0b8}
+footer{position:absolute;left:0;right:0;bottom:18px;font-size:13px;color:#d6f3ee}
 footer b{color:var(--teal)}
 .waves{position:fixed;left:0;right:0;bottom:0;height:130px;z-index:1;pointer-events:none;overflow:hidden}
 .waves svg{position:absolute;bottom:0;left:0;width:200%;height:100%}
